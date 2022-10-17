@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/authFragment">
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.dmitri.mobileclientservice.ui.fragments.AuthFragment"
+        android:label="AuthFragment">
+        <action
+            android:id="@+id/toUserFragment"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim"
+            app:destination="@id/userFragment"
+            app:popUpTo="@id/authFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.dmitri.mobileclientservice.ui.fragments.UserFragment"
+        android:label="UserFragment">
+        <argument
+            android:name="user"
+            app:argType="com.dmitri.mobileclientservice.data.model.User"
+            app:nullable="false" />
+        <argument
+            android:name="userLoginResponse"
+            app:argType="com.dmitri.mobileclientservice.api.response.UserLoginResponse"
+            app:nullable="false" />
+    </fragment>
+</navigation>
